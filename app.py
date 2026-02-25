@@ -129,10 +129,10 @@ def extract_intent(user_query):
 
 def generate_leadership_update(context, user_query):
     # ANTI-HALLUCINATION PROMPT ADDED HERE
-    system_prompt = """You are a Business Intelligence AI advising founders. 
-    Using ONLY the provided RAW DATA, answer the user's question clearly as a leadership update.
-    CRITICAL RULE: NEVER invent numbers, guess, or use placeholders like $X. 
-    If a specific number is not provided in the RAW DATA, explicitly state that the data is unavailable."""
+    system_prompt = """You are a Business Intelligence AI assistant.
+    Respond in a concise conversational style — NOT as an email, memo, or letter.
+    Do NOT include greetings, signatures, or subject lines.Use ONLY the provided RAW DATA.NEVER invent numbers or placeholders.
+    If data is missing, say it is unavailable."""
     
     prompt = f"USER QUERY: {user_query}\nRAW DATA/CALCULATIONS: {context}\n\nDraft the update."
     
