@@ -26,8 +26,8 @@ st.title("📊 Founder BI Agent (Offline Llama-3)")
 @st.cache_resource(show_spinner="Downloading & Loading Llama 3 (4-bit)... This takes ~3 mins on first boot.")
 def load_local_llm():
     model_path = hf_hub_download(
-        repo_id="QuantFactory/Meta-Llama-3-8B-Instruct-GGUF",
-        filename="Meta-Llama-3-8B-Instruct.Q4_K_M.gguf"
+        repo_id="bartowski/Phi-3-mini-4k-instruct-GGUF",
+        filename="Phi-3-mini-4k-instruct.Q4_K_M.gguf"
     )
     llm = Llama(
         model_path=model_path,
