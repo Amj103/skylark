@@ -10,7 +10,7 @@ from llama_cpp import Llama
 # 1. CONFIGURATION & SECRETS
 # ==========================================
 try:
-    MONDAY_API_TOKEN = st.secrets["MONDAY_API_TOKEN"]
+    MONDAY_API = st.secrets["MONDAY_API_TOKEN"]
     WORK_ORDERS_BOARD_ID = st.secrets["WORK_ORDERS_BOARD_ID"]
     DEALS_BOARD_ID = st.secrets["DEALS_BOARD_ID"]
 except FileNotFoundError:
@@ -27,8 +27,8 @@ st.title("📊 Founder BI Agent (Offline Llama-3)")
 def load_local_llm():
     model_path = hf_hub_download(
         repo_id="bartowski/Phi-3-mini-4k-instruct-GGUF",
-        filename="Phi-3-mini-4k-instruct.Q4_K_M.gguf"
-    )
+        filename="Phi-3-mini-4k-instruct-Q4_K_M.gguf"
+)
     llm = Llama(
         model_path=model_path,
         n_ctx=2048, 
@@ -44,7 +44,7 @@ llm = load_local_llm()
 @st.cache_data(ttl=600, show_spinner="Fetching live data from Monday.com...")
 def fetch_and_clean_monday_data(board_id):
     headers = {
-        "Authorization": MONDAY_API_TOKEN,
+        "Authorization": MONDAY_API,
         "Content-Type": "application/json"
     }
     
