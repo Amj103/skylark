@@ -1,3 +1,47 @@
+Hugging Face's logo
+Hugging Face
+Models
+Datasets
+Spaces
+Community
+Docs
+Enterprise
+Pricing
+
+
+Spaces:
+Amj103
+/
+skylark-bi
+
+
+like
+0
+
+Logs
+App
+Files
+Community
+Settings
+skylark-bi
+/
+app1.py
+
+Amj103's picture
+Amj103
+Update app1.py
+49f511f
+verified
+5 minutes ago
+raw
+
+Copy download link
+history
+blame
+edit
+delete
+
+8.52 kB
 import streamlit as st
 import pandas as pd
 import requests
@@ -130,9 +174,9 @@ def extract_intent(user_query):
 def generate_leadership_update(context, user_query):
     # ANTI-HALLUCINATION PROMPT ADDED HERE
     system_prompt = """You are a Business Intelligence AI assistant.
-    Respond in a concise conversational style — NOT as an email, memo, or letter.
-    Do NOT include greetings, signatures, or subject lines.Use ONLY the provided RAW DATA.NEVER invent numbers or placeholders.
-    If data is missing, say it is unavailable."""
+        Respond in a concise conversational style — NOT as an email, memo, or letter.
+        Do NOT include greetings, signatures, or subject lines.Use ONLY the provided RAW DATA.
+        NEVER invent numbers or placeholders.If data is missing, say it is unavailable."""
     
     prompt = f"USER QUERY: {user_query}\nRAW DATA/CALCULATIONS: {context}\n\nDraft the update."
     
