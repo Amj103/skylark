@@ -23,16 +23,17 @@ st.title("📊 Founder BI Agent (Offline Llama-3)")
 # ==========================================
 # 2. LOCAL LLM INITIALIZATION
 # ==========================================
-@st.cache_resource(show_spinner="Downloading & Loading Llama 3 (4-bit)... This takes ~3 mins on first boot.")
+@st.cache_resource(show_spinner="Downloading & Loading Phi-3 Mini...")
 def load_local_llm():
     model_path = hf_hub_download(
-        repo_id="bartowski/Phi-3-mini-4k-instruct-GGUF",
-        filename="Phi-3-mini-4k-instruct-Q4_K_M.gguf"
-)
+        repo_id="microsoft/Phi-3-mini-4k-instruct-gguf",
+        filename="Phi-3-mini-4k-instruct-q4.gguf"
+    )
+
     llm = Llama(
         model_path=model_path,
-        n_ctx=2048, 
-        n_threads=2 
+        n_ctx=2048,
+        n_threads=2
     )
     return llm
 
